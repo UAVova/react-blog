@@ -9,16 +9,13 @@ import {
 
 import App from './components/app';
 import reducers from './reducers';
-import Switch from 'react-router-dom/Switch';
-
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+import promise from 'redux-promise';
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-      </Switch>
+      <Route path="/" component={App} />
     </Router>
   </Provider>
   , document.querySelector('.container'));
