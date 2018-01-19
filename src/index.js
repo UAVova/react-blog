@@ -6,10 +6,11 @@ import {
   BrowserRouter as Router, 
   Route
 } from 'react-router-dom';
-
-import App from './components/app';
 import reducers from './reducers';
 import promise from 'redux-promise';
+
+import App from './components/app';
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
