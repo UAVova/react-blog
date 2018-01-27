@@ -59,8 +59,12 @@ const renderTextarea = ({
     )}
   </div>
 )
-
-class PostsNew extends Component {
+@connect(null, { createPost })
+@reduxForm({
+  form: 'PostsNew',
+  validate
+})
+export default class PostsNew extends Component {
 
   onSubmit(params) {
     this.props.createPost(params)
@@ -82,10 +86,3 @@ class PostsNew extends Component {
     );
   }
 }
-
-PostsNew = connect(null, { createPost })(PostsNew)
-
-export default reduxForm({
-  form: 'PostsNew',
-  validate
-})(PostsNew);
