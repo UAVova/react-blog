@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { createPost } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const validate = props => {
   const errors = {};
@@ -60,11 +61,17 @@ const renderTextarea = ({
 )
 
 class PostsNew extends Component {
+
+  onSubmit(params) {
+    this.props.createPost(params)
+      .then(() => this.props.history.push('/'));
+  }
+
   render() {
     const { handleSubmit, pristine, submitting } = this.props;
     
     return (
-      <form onSubmit={handleSubmit(this.props.createPost)}>
+      <form onSubmit={handleSubmit((args) => this.onSubmit(args))}>
         <h3>Cerate new post</h3>
         <Field component={renderField} type='text' name='title' label='Title'/>
         <Field component={renderField} type='text' name='categories' spec="lololo" label='Categories'/>
