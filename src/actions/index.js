@@ -14,6 +14,7 @@ export function fetchPosts() {
     type: FETCH_POSTS,
     payload: request
   };
+
 }
 
 export function createPost(props) {

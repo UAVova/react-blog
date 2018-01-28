@@ -34,6 +34,7 @@ class PostsIndex extends Component {
         <ul className='list-group'>
           {this.renderPosts()}
         </ul>
+
       </div>
     );
  }
