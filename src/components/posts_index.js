@@ -13,10 +13,12 @@ class PostsIndex extends Component {
   renderPosts() {
     return this.props.posts.map( post => {
       return (
-        <ul key={post.id} className='list-group-item'>
-          <strong>{post.title}</strong>
-          <div className='pull-xs-right'>{post.categories}</div>
-        </ul>
+        <li key={post.id} className='list-group-item'>
+          <Link to={`/posts/${post.id}`}>
+            <strong>{post.title}</strong>
+            <div className='pull-xs-right'>{post.categories}</div>
+          </Link>
+        </li>
       );
     });
   }
