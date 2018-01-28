@@ -1,11 +1,13 @@
 import { FETCH_POSTS } from '../actions';
 
-export default function (state = {}, action) {
+const INITIAL_STATE = { all: [], post:null };
+
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_POSTS:
-      return action.payload
+      return { ...state, all: action.payload.data }
   
     default:
-      break;
+      return state;
   }
 }
